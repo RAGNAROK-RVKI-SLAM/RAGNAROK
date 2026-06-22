@@ -203,18 +203,22 @@
       </div>
       <div class="works-list">
         <!-- TODO: Replace with your lab's related works -->
+        <a href="https://arxiv.org/pdf/2511.13216" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>GaRLILEO: Gravity-aligned Radar-Leg-Inertial Enhanced Odometry</h5>
+            <p>Chiyun Noh, Sangwoo Jung, Hanjun Kim, Yafei Hu, Laura Herlant, Ayoung Kim</p>
+            <span class="work-venue">IJRR 2026</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
         <a href="https://arxiv.org/abs/2502.07703" class="work-item" target="_blank">
           <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
             <h5>GaRLIO: Gravity enhanced Radar-LiDAR-Inertial Odometry</h5>
-            <!-- TODO: Replace with brief description -->
             <p>Chiyun Noh, Wooseong Yang, Minwoo Jung, Sangwoo Jung and Ayoung Kim</p>
-            <!-- TODO: Replace with venue and year -->
             <span class="work-venue">ICRA 2025</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
-        <!-- TODO: Add more related works or remove extra items -->
         <a href="https://arxiv.org/pdf/2407.05820" class="work-item" target="_blank">
           <div class="work-info">
             <h5>Co-RaL: Complementary Radar-Leg Odometry with 4-DoF Optimization and Rolling Contact</h5>
@@ -242,7 +246,7 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">RAGNAROK: Radar-Aided Gravity-Normalized Alignment for<br>Robust Open Keyframe-based Radar-Visual-Kinematic-Inertial SLAM</h1>
+            <h1 class="title is-1 publication-title">RAGNAROK: Radar-Aided Gravity-Normalized Alignment for Robust Open Keyframe-based Radar-Visual-Kinematic-Inertial SLAM</h1>
             <div class="is-size-5 publication-authors">
               <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
@@ -382,8 +386,8 @@
                     line-height: 1.4;
                     margin-left: auto;
                     margin-right: auto;
-                    text-align: left;">
-            Overall preview of GaRLILEO. The four subfigures in the upper row present the problematic situations that quadrupedal robots may encounter while performing real-world tasks, while the yellow letters specify the situations and the red words explain the substantial issues generated from them. Two boxes in the left part of the lower row summarize the major contribution and method of GaRLILEO, which significantly reduces odometry error, especially in the vertical direction. Two graphs in the right part of the lower row present the short experimental results, showing the accuracy of GaRLILEO in multiple sequences that include loops, sharp turns, and staircases, where most baselines fail to maintain accuracy in odometry estimation.
+                    text-align: center;">
+            Left: Performance comparison between RAGNAROK and baseline methods, with scores computed as ATE<sub>mean</sub>/(ATE<sub>mean</sub>+ATE).<br>Right-Top: Representative challenging scenarios from the self-collected dataset. Right-Bottom: Overview of the RAGNAROK pipeline.
           </h2>
         </figcaption>
       </figure>
@@ -399,22 +403,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified"> 
           <p>
-            Deployment of legged robots for navigating challenging terrains (e.g., stairs, slopes, and unstructured environments)
-has gained increasing preference over wheel-based platforms. In such scenarios, accurate odometry estimation is
-a preliminary requirement for stable locomotion, localization, and mapping. Traditional proprioceptive approaches,
-which rely on leg kinematics sensor modalities and inertial sensing, suffer from irrepressible vertical drift caused by frequent contact impacts, foot slippage, and vibrations, particularly affected by inaccurate roll and pitch estimation.
-Existing methods incorporate exteroceptive sensors such as Light Detection and Ranging (LiDAR) or cameras. Further
-enhancement has been introduced by leveraging gravity vector estimation to add additional observations on roll and
-pitch, thereby increasing the accuracy of vertical pose estimation. However, these approaches tend to degrade in
-feature-sparse or repetitive scenes and are prone to errors from double-integrated IMU acceleration. To address these
-challenges, we propose GaRLILEO, a novel gravity-aligned continuous-time radar-leg-inertial odometry framework.
-GaRLILEO decouples velocity from the IMU by building a continuous-time ego-velocity spline from SoC radar Doppler
-and leg kinematics information, enabling seamless sensor fusion which mitigates odometry distortion. In addition,
-GaRLILEO can reliably capture accurate gravity vectors leveraging a novel soft S<sup>2</sup>-constrained gravity factor, improving
-vertical pose accuracy without relying on LiDAR or cameras. Evaluated on a self-collected real-world dataset with
-diverse indoor-outdoor trajectories, GaRLILEO demonstrates state-of-the-art accuracy, particularly in vertical odometry
-estimation on stairs and slopes. We open-source both our dataset and algorithm to foster further research in legged
-robot odometry and SLAM. 
+            Legged robots offer superior mobility in unstructured environments, but reliable operation in such conditions requires robust state estimation. To address the vulnerability of proprioceptive estimators in rough terrain, recent methods have incorporated radar to provide velocity measurements. However, their limited yaw observability still leads to drift, and failure-aware fusion for adverse environments remains underexplored. In this letter, we present RAGNAROK, the first radar-visual-kinematic-inertial SLAM designed for robust operation in challenging environments. It integrates slip- and rolling-contact-aware leg velocity estimation, kinematics-aware multi-radar factor, and degradation-aware image enhancement. We further incorporate continuous-time proprioceptive fusion, adaptive multi-sensor weighting, and online calibration. RAGNAROK outperforms state-of-the-art baselines across diverse and challenging conditions, reducing the average RMSE ATE from 1.172 m to 0.379 m, corresponding to a 67.7% error reduction. The code and dataset will be released upon acceptance.
           </p>
         </div>
       </div>
@@ -459,7 +448,7 @@ robot odometry and SLAM.
              alt="SNU and RAI sensor system deployment"
              style="max-width: 1200px; width: 100%; height: auto;" />
         <figcaption class="has-text-grey" style="margin-top: .5rem;">
-          SNU and RAI sensor system deployment. Both systems use a TI mmWave radar, a MicroStrain IMU, and a Boston Dynamics Spot robot.
+          System overview of the platform and coordinates of sensors.
         </figcaption>
       </figure>
     </div>
@@ -491,29 +480,52 @@ robot odometry and SLAM.
             </thead>
             <tbody>
               <tr>
-                <td>Legged robot</td>
-                <td>Boston Dynamics</td>
-                <td>Spot</td>
+                <td>Depth camera</td>
+                <td>RealSense</td>
+                <td>D455</td>
                 <td>
-                  <code>/joint_states</code><br>
-                  <code>/spot/status/feet</code>
+                  <code>/camera/camera/infra1/image_rect_raw</code><br>
+                  <code>/camera/camera/infra2/image_rect_raw</code>
                 </td>
-                <td>150&nbsp;Hz<br>150&nbsp;Hz</td>
-                <td rowspan="3" style="vertical-align: middle;">Sensor Measurements</td>
+                <td>15&nbsp;Hz<br>15&nbsp;Hz</td>
+                <td rowspan="5" style="vertical-align: middle;">Sensor Measurements</td>
               </tr>
               <tr>
-                <td>Radar</td>
-                <td>Texas Instruments</td>
-                <td>IWR1843BOOST</td>
-                <td><code>/ti_mmwave/radar_scan_pcl_0</code></td>
-                <td>20&nbsp;Hz</td>
+                <td>Stereo camera</td>
+                <td>FLIR</td>
+                <td>Blackfly S</td>
+                <td>
+                  <code>/camera_left/image_raw</code><br>
+                  <code>/camera_right/image_raw</code>
+                </td>
+                <td>15&nbsp;Hz<br>15&nbsp;Hz</td>
               </tr>
               <tr>
                 <td>IMU</td>
                 <td>MicroStrain</td>
                 <td>3DM-GV7-AHRS</td>
-                <td><code>/imu</code></td>
+                <td><code>/imu/data</code></td>
                 <td>100&nbsp;Hz</td>
+              </tr>
+              <tr>
+                <td>Legged robot</td>
+                <td>Boston Dynamics</td>
+                <td>Spot</td>
+                <td>
+                  <code>/joint_states</code><br>
+                  <code>/status/feet</code>
+                </td>
+                <td>150&nbsp;Hz<br>150&nbsp;Hz</td>
+              </tr>
+              <tr>
+                <td>Radar</td>
+                <td>DesignCore</td>
+                <td>RS-1843AOPU</td>
+                <td>
+                  <code>/ti_mmwave_0/radar_scan_pcl</code><br>
+                  <code>/ti_mmwave_1/radar_scan_pcl</code>
+                </td>
+                <td>15&nbsp;Hz<br>15&nbsp;Hz</td>
               </tr>
               <tr>
                 <td>LiDAR</td>
@@ -547,7 +559,7 @@ robot odometry and SLAM.
   <div class="container is-fluid">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">TI mmwave Radar Specification</h2>
+        <h2 class="title is-3">Radar Specification</h2>
         <div class="content has-text-justified">
           <!-- table-container를 추가해서 가로 스크롤 가능하게 (화면 잘림 방지) -->
           <div class="table-container">
@@ -570,8 +582,8 @@ robot odometry and SLAM.
               </thead>
               <tbody>
                 <tr>
-                  <th>TI mmWave IWR1843BOOST</th>
-                  <td>20&nbsp;Hz</td>
+                  <th>DesignCore RS-1843AOPU</th>
+                  <td>15&nbsp;Hz</td>
                   <td>77&nbsp;GHz</td>
                   <td>FMCW</td>
                   <td>3</td>
@@ -605,132 +617,152 @@ robot odometry and SLAM.
         <h2 class="title is-3">Dataset Sequences</h2>
         <div class="content has-text-justified">
           <p>
-            The <strong>GaRLILEO Dataset</strong> contains diverse sequences captured by a legged robot equipped with a millimeter-wave radar, IMU, and leg kinematics sensors. 
-            It spans indoor and outdoor environments with various elevation profiles, loop trajectories, and motion dynamics. 
-            Each sequence is provided with synchronized <code>ros2 bag</code> files, calibration data, and ground-truth maps/trajectories when available. <br>
-            Our dataset is available via the following links:
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfszKpS_At7sF-0aQxxHN9ujUyi4gdotq9ES3meqMWp2gySVw/viewform?usp=dialog" target="_blank" class="has-text-link">Link</a>
+            The <strong>RAGNAROK Dataset</strong> contains indoor, outdoor, and mixed sequences collected across diverse illumination conditions, elevation changes, self-similar structures, and loop trajectories.
           </p>
 
           <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
               <tr>
                 <th>Sequence</th>
-                <th class="has-text-centered">Path Length (m)</th>
-                <th class="has-text-centered">Elevation Change (m)</th>
-                <th class="has-text-centered">Duration (s)</th>
-                <th class="has-text-centered">Loops (#)</th>
-                <th class="has-text-centered">Calibration<br>(Extrinsics)</th>
-                <th class="has-text-centered">GT Map</th>
+                <th class="has-text-centered">Outdoor</th>
+                <th class="has-text-centered">Indoor</th>
+                <th class="has-text-centered">Length (m)</th>
+                <th class="has-text-centered">Elevation</th>
+                <th class="has-text-centered">Self-similarity</th>
+                <th class="has-text-centered"># of Loop</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Atrium</td>
-                <td class="has-text-centered">109.93</td>
+                <td>Terrace</td>
+                <td class="has-text-centered">Dark</td>
                 <td class="has-text-centered">-</td>
-                <td class="has-text-centered">124.50</td>
+                <td class="has-text-centered">68.38</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">-</td>
                 <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 2</td>
               </tr>
               <tr>
-                <td>BridgeLoop</td>
-                <td class="has-text-centered">161.17</td>
-                <td class="has-text-centered">1.72</td>
-                <td class="has-text-centered">187.20</td>
-                <td class="has-text-centered">3</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 3</td>
-              </tr>
-              <tr>
-                <td>CorriLoop</td>
-                <td class="has-text-centered">208.68</td>
+                <td>TerraceLoop</td>
+                <td class="has-text-centered">Dark</td>
                 <td class="has-text-centered">-</td>
-                <td class="has-text-centered">229.40</td>
+                <td class="has-text-centered">134.47</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">-</td>
                 <td class="has-text-centered">2</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 4</td>
               </tr>
               <tr>
-                <td>BiCorridor</td>
-                <td class="has-text-centered">240.82</td>
-                <td class="has-text-centered">4.72</td>
-                <td class="has-text-centered">277.29</td>
-                <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 4</td>
-              </tr>
-              <tr>
-                <td>Downstair</td>
-                <td class="has-text-centered">233.75</td>
-                <td class="has-text-centered">8.81</td>
-                <td class="has-text-centered">270.90</td>
-                <td class="has-text-centered">2</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 1</td>
-              </tr>
-              <tr>
-                <td>Upstair</td>
-                <td class="has-text-centered">197.22</td>
-                <td class="has-text-centered">9.37</td>
-                <td class="has-text-centered">227.89</td>
-                <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 3</td>
-              </tr>
-              <tr>
-                <td>SlopeStair</td>
-                <td class="has-text-centered">273.37</td>
-                <td class="has-text-centered">10.06</td>
-                <td class="has-text-centered">307.49</td>
-                <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 1</td>
-              </tr>
-              <tr>
-                <td>Overpass</td>
-                <td class="has-text-centered">169.17</td>
-                <td class="has-text-centered">7.23</td>
-                <td class="has-text-centered">213.49</td>
-                <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 5</td>
-              </tr>
-              <tr>
-                <td>Tunnel</td>
-                <td class="has-text-centered">247.94</td>
+                <td>Garden</td>
+                <td class="has-text-centered">Dark</td>
                 <td class="has-text-centered">-</td>
-                <td class="has-text-centered">277.00</td>
-                <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 7</td>
+                <td class="has-text-centered">162.54</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">2</td>
               </tr>
               <tr>
                 <td>Quad</td>
-                <td class="has-text-centered">447.83</td>
-                <td class="has-text-centered">10.72</td>
-                <td class="has-text-centered">503.69</td>
+                <td class="has-text-centered">Dim</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">438.28</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
                 <td class="has-text-centered">1</td>
-                <td class="has-text-centered">SNU System</td>
-                <td class="has-text-centered">GT Map 6</td>
               </tr>
               <tr>
-                <td>MoCap-E</td>
-                <td class="has-text-centered">44.91</td>
-                <td class="has-text-centered">0.57</td>
-                <td class="has-text-centered">139.10</td>
+                <td>Overpass</td>
+                <td class="has-text-centered">Glare</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">160.10</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">1</td>
+              </tr>
+              <tr>
+                <td>Mountain-Long</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">207.59</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">1</td>
+              </tr>
+              <tr>
+                <td>Mountain-Short</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">170.14</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">1</td>
+              </tr>
+              <tr>
+                <td colspan="7" style="padding: 0.25rem 0;"><hr style="margin: 0;"></td>
+              </tr>
+              <tr>
+                <td>Atrium</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">Dark</td>
+                <td class="has-text-centered">68.98</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">-</td>
                 <td class="has-text-centered">2</td>
-                <td class="has-text-centered">RAI System</td>
+              </tr>
+              <tr>
+                <td>FloorGyre</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">Dark</td>
+                <td class="has-text-centered">77.10</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">-</td>
                 <td class="has-text-centered">-</td>
               </tr>
               <tr>
-                <td>MoCap-H</td>
-                <td class="has-text-centered">42.48</td>
-                <td class="has-text-centered">0.60</td>
-                <td class="has-text-centered">79.46</td>
+                <td>Upstair</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">Dim</td>
+                <td class="has-text-centered">96.65</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+              </tr>
+              <tr>
+                <td>Downstair</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">216.23</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">1</td>
+              </tr>
+              <tr>
+                <td>CorriLoop</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">205.38</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">&#10003;</td>
                 <td class="has-text-centered">2</td>
-                <td class="has-text-centered">RAI System</td>
+              </tr>
+              <tr>
+                <td colspan="7" style="padding: 0.25rem 0;"><hr style="margin: 0;"></td>
+              </tr>
+              <tr>
+                <td>SlopeStair</td>
+                <td class="has-text-centered">Glare</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">137.25</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">1</td>
+              </tr>
+              <tr>
+                <td>Tunnel</td>
+                <td class="has-text-centered">Dark</td>
+                <td class="has-text-centered">Dim</td>
+                <td class="has-text-centered">208.51</td>
+                <td class="has-text-centered">-</td>
+                <td class="has-text-centered">&#10003;</td>
                 <td class="has-text-centered">-</td>
               </tr>
             </tbody>
