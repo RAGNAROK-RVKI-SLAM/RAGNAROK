@@ -116,6 +116,7 @@ body {
 /* Publication Content Styling */
 .publication-title {
     font-family: 'Inter', sans-serif !important;
+    font-size: 2.65rem !important;
     font-weight: 800 !important;
     color: var(--text-primary) !important;
     margin-bottom: 2rem !important;
@@ -609,7 +610,7 @@ code {
   }
   
   .publication-title {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
     line-height: 1.2 !important;
     margin-bottom: 1.5rem !important;
   }
@@ -658,7 +659,7 @@ code {
 
 @media screen and (max-width: 480px) {
   .publication-title {
-    font-size: 2rem !important;
+    font-size: 1.75rem !important;
   }
   
   .hero-body {
