@@ -1,5 +1,7 @@
 /* Modern CSS Variables for consistent theming */
 :root {
+  --page-content-width: 1100px;
+  --page-gutter: clamp(1rem, 3vw, 1.5rem);
   --primary-color: #2563eb;
   --primary-hover: #1d4ed8;
   --secondary-color: #64748b;
@@ -36,6 +38,43 @@ body {
   background-color: var(--background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Shared content width and gutters across every page section. */
+#main-content > .section,
+#main-content > .hero > .hero-body,
+body > .footer {
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
+}
+
+.page-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--page-content-width);
+  min-width: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-container > .columns > .column {
+  min-width: 0;
+}
+
+.page-figure-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sensor-system-figure {
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.sensor-system-figure figcaption {
+  padding: 0.75rem 1.25rem;
 }
 
 
@@ -260,15 +299,15 @@ body {
 }
 
 .results-carousel .item {
-  margin: 1rem;
+  margin: 0;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 0;
   font-size: 0;
   background: var(--background-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  border: 1px solid var(--border-color);
+  border: 0;
 }
 
 .results-carousel .item:hover {
@@ -641,11 +680,6 @@ code {
     right: -1rem;
     bottom: calc(100% + 0.5rem);
     top: auto;
-  }
-  
-  .results-carousel .item {
-    margin: 0.5rem;
-    padding: 1rem;
   }
   
   .teaser .hero-body {

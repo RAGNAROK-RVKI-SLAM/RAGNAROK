@@ -307,7 +307,7 @@
   <main id="main-content">
   <section class="hero">
     <div class="hero-body">
-      <div class="container is-max-desktop">
+      <div class="page-container">
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
@@ -451,16 +451,15 @@
 <!-- Teaser (static, no carousel) -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
+    <div class="page-container">
       <figure class="has-text-centered">
         <img src="static/images/teaser_figure.jpg"
              alt="Overall preview of RAGNAROK"
-             style="max-width: 1100px; width: 100%; height: auto;" />
+             class="page-figure-image" />
         <figcaption class="has-text-centered">
           <h2 class="subtitle" 
               style="margin-top: 0.75rem;
                     font-size: 0.9rem;
-                    max-width: 75%;
                     line-height: 1.4;
                     margin-left: auto;
                     margin-right: auto;
@@ -475,9 +474,9 @@
                     
 <!-- YouTube video -->
 <section class="section" id="video" aria-labelledby="video-title">
-  <div class="container is-max-desktop">
+  <div class="page-container">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3" id="video-title">Video</h2>
         <div class="publication-video">
           <iframe src="https://www.youtube.com/embed/qD49Pis8DZ4"
@@ -496,9 +495,9 @@
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
-  <div class="container is-max-desktop">
+  <div class="page-container">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified"> 
           <p>
@@ -514,24 +513,23 @@
 
 <!-- Sensor System (sectioned like "Model Graph Priors") -->
 <section class="section">
-  <div class="container is-fluid">
+  <div class="page-container">
 
     <!-- Title -->
     <h2 class="title is-3 has-text-centered">Sensor System</h2>
 
     <!-- Top: SNU & RAI deployment (overall) -->
-    <div class="box" style="border-radius: 12px;">
+    <div class="box sensor-system-figure">
       <figure class="has-text-centered">
         <img src="static/images/robot_system.jpg"
              alt="SNU and RAI sensor system deployment"
-             style="max-width: 1200px; width: 100%; height: auto;" />
-        <figcaption class="has-text-grey" style="margin-top: .5rem;">
+             class="page-figure-image" />
+        <figcaption class="has-text-grey">
           System overview of the platform and coordinates of sensors.
         </figcaption>
       </figure>
     </div>
 
-    </div>
   </div>
 </section>
 
@@ -539,12 +537,13 @@
                     
 <!-- Sensors section -->
 <section class="section">
-  <div class="container is-fluid">
+  <div class="page-container">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Sensor Specifications</h2>
         <div class="content has-text-justified">
           <!-- is-fullwidth + is-bordered 로 외곽선/아랫줄 표시 -->
+          <div class="table-container" tabindex="0" role="region" aria-label="Sensor specifications table">
           <table class="table is-fullwidth is-bordered">
             <thead>
               <tr>
@@ -622,6 +621,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
           <!-- <p class="has-text-centered">Any additional sensor notes can go here.</p> -->
         </div>
       </div>
@@ -634,13 +634,13 @@
 
 <!-- Radar Spec section -->
 <section class="section">
-  <div class="container is-fluid">
+  <div class="page-container">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Radar Specification</h2>
         <div class="content has-text-justified">
           <!-- table-container를 추가해서 가로 스크롤 가능하게 (화면 잘림 방지) -->
-          <div class="table-container">
+          <div class="table-container" tabindex="0" role="region" aria-label="Radar specifications table">
             <table class="table is-fullwidth is-bordered is-narrow">
               <thead>
                 <tr>
@@ -689,15 +689,16 @@
 
 <!-- Dataset section -->
 <section class="section">
-  <div class="container is-fluid">
+  <div class="page-container">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Dataset Sequences</h2>
         <div class="content has-text-justified">
           <p>
             The <strong>RAGNAROK Dataset</strong> contains indoor, outdoor, and mixed sequences collected across diverse illumination conditions, elevation changes, self-similar structures, and loop trajectories.
           </p>
 
+          <div class="table-container" tabindex="0" role="region" aria-label="Dataset sequences table">
           <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
               <tr>
@@ -845,6 +846,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
 
 
 
@@ -862,7 +864,7 @@
 <!-- Video carousel (manual only) -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container has-text-centered">
+    <div class="page-container has-text-centered">
       <h2 class="title is-3">Qualitative Comparison</h2>
 
       <div id="results-carousel" class="carousel results-carousel">
@@ -951,7 +953,7 @@
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
+    <div class="page-container content">
       <div class="bibtex-header">
         <h2 class="title">BibTeX</h2>
         <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
@@ -969,12 +971,12 @@
     </div>
 </section>
 <!--End BibTex citation -->
-
+  </main>
 
   <footer class="footer">
-  <div class="container">
+  <div class="page-container">
     <div class="columns is-centered">
-      <div class="column is-8">
+      <div class="column">
         <div class="content">
 
           <p>
